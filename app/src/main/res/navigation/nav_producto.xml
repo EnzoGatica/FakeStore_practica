@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_producto"
+    app:startDestination="@id/fragmentLista">
+
+    <fragment
+        android:id="@+id/fragmentLista"
+        android:name="com.example.fakestore_practica.vista.ListFragment"
+        android:label="fragment_lista"
+        tools:layout="@layout/fragment_lista" />
+</navigation>
