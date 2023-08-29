@@ -40,4 +40,6 @@ class Repositorio(private val productAPI: ProductAPI, private val productoDao: P
         this.rating.count
     )
 
+    
+
 }
