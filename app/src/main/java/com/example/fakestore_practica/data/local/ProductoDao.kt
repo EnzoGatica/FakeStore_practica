@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface ProductoDao {
 
-    
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllProduct(productList: List<ProductoEntity>)
 
