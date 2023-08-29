@@ -19,9 +19,9 @@ interface ProductoDao {
     //Detalle producto
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDetailProduct(productoDetalle: ProductoDetalle)
+    suspend fun insertDetailProduct(productoDetalleEntity: ProductoDetalleEntity)
 
     @Query("SELECT * FROM detail_table WHERE id = :id")
-    fun getOneProductID(id:Int): LiveData<ProductoDetalle>
+    fun getOneProductID(id:Int): LiveData<ProductoDetalleEntity>
 
 }
