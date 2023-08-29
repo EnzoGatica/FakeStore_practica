@@ -19,10 +19,17 @@ class ProductViewModel(application: Application): AndroidViewModel(application) 
         repositorio = Repositorio(api,productoDataBase)
     }
 
+    //Listado Producto
     fun productoLiveData() = repositorio.obtenerProductoEntity()
 
     fun getAllProductos() = viewModelScope.launch {
         repositorio.CargarProductos()
+    }
+
+    //Detalle Producto
+    fun detalleLiveData(id: Int) = repositorio.cargarDetalleID(id)
+    fun getDetalleProducto(id:Int) = viewModelScope.launch {
+        repositorio.cargarDetalleProducto(id)
     }
 
 }

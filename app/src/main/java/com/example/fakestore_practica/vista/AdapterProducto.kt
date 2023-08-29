@@ -3,8 +3,10 @@ package com.example.fakestore_practica.vista
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.fakestore_practica.R
 import com.example.fakestore_practica.data.local.ProductoEntity
 import com.example.fakestore_practica.databinding.ItemProductoBinding
 
@@ -41,6 +43,12 @@ class AdapterProducto: RecyclerView.Adapter<AdapterProducto.ItemProductoViewHold
 
             productoBinding.txtNombre.text = producto.titulo
             productoBinding.imgProducto.load(producto.image)
+            productoBinding.cvItem.setOnClickListener{
+                bundle.putInt("id", producto.id)
+                Navigation.findNavController(productoBinding.root).navigate(R.id.action_fragmentLista_to_detailFragment,bundle)
+            }
+
+
 
         }
     }
