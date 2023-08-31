@@ -32,16 +32,6 @@ class Repositorio(private val productAPI: ProductAPI, private val productoDao: P
         }
     }
 
-    private fun Product.transformEntity(): ProductoEntity = ProductoEntity(
-        this.id,
-        this.titulo,
-        this.price,
-        this.description,
-        this.category,
-        this.image,
-        this.rating.rate,
-        this.rating.count
-    )
 
     //Detalle producto
 
@@ -65,15 +55,6 @@ class Repositorio(private val productAPI: ProductAPI, private val productoDao: P
 
     }
 
-    private fun ProductDetail.transformDetalle(): ProductoDetalleEntity = ProductoDetalleEntity(
-        this.id,
-        this.titulo,
-        this.price,
-        this.description,
-        this.category,
-        this.image,
-        this.rating.rate,
-        this.rating.count
-    )
+
 
 }
