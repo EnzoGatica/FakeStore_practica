@@ -1,5 +1,7 @@
 package com.example.fakestore_practica.vista
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.fakestore_practica.R
 import com.example.fakestore_practica.databinding.FragmentDetailBinding
@@ -44,8 +47,32 @@ class DetailFragment : Fragment() {
                 binding.txtDescripcion.text = it.description
                 binding.txtTitulo.text = it.titulo
                 binding.txtPrecio.text = it.price.toString()
+                val id = it.id
+            }
+            binding.btnCorreo!!.setOnClickListener{
+
+                sendEmail(id)
+
+
             }
         }
+    }
+
+    private fun sendEmail(id:Int) {
+        //mail cliente
+        val destinatario = "info@gmail.cl"
+        val intentEmail = Intent(Intent.ACTION_SEND, Uri.parse(destinatario))
+        intentEmail.type = "plain/text"
+        //Donde llegan
+        intentEmail.putExtra(Intent.EXTRA_EMAIL,arrayOf(destinatario))
+        //Titulo Mail
+        intentEmail.putExtra(Intent.EXTRA_SUBJECT, "Producto " + id.toString())
+        //Body Mail
+        intentEmail.putExtra(Intent.EXTRA_TEXT, "Me interesa este producto")
+
+        startActivity(Intent.createChooser(intentEmail, "Consulta producto"))
+
+        findNavController().navigate(R.id.action_detailFragment_to_fragmentLista)
     }
 
 
