@@ -60,15 +60,15 @@ class DetailFragment : Fragment() {
 
     private fun sendEmail(id:Int) {
         //mail cliente
-        val destinatario = "info@gmail.cl"
+        val destinatario = getString(R.string.destinatario_msn)
         val intentEmail = Intent(Intent.ACTION_SEND, Uri.parse(destinatario))
         intentEmail.type = "plain/text"
         //Donde llegan
         intentEmail.putExtra(Intent.EXTRA_EMAIL,arrayOf(destinatario))
         //Titulo Mail
-        intentEmail.putExtra(Intent.EXTRA_SUBJECT, "Producto " + id.toString())
+        intentEmail.putExtra(Intent.EXTRA_SUBJECT,getString(R.string.asunt,id))
         //Body Mail
-        intentEmail.putExtra(Intent.EXTRA_TEXT, "Me interesa este producto")
+        intentEmail.putExtra(Intent.EXTRA_TEXT,getString(R.string.body_msn,id))
 
         startActivity(Intent.createChooser(intentEmail, "Consulta producto"))
 

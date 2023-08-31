@@ -3,4 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enviar_correo">Enviar Correo</string>
+    <string name="body_msn">Hola \n Vi el producto con código %1$d y me gustaría que me contactaran a este correo
+        \n  \n Quedo atento.
+    </string>
+    <string name="destinatario_msn">info@novaera.cl</string>
+    <string name="asunt">Consulta producto id %1$d.</string>
 </resources>
